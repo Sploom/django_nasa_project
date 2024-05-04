@@ -1,32 +1,24 @@
-body, html {
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* Убирает горизонтальный скролл */
-    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
-/* Общие стили */
+
 body {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
-/* Стилизация шапки */
-header {
-    width: 100%;
-    background-color: #0A121E;
-    color: white;
-}
+
 /* Стилизация шапки */
 .navbar {
     background-color: #0A121E;
     color: white;
-    padding: 0 150px; /* Добавим отступы по бокам для больших экранов */
-    height: 90px; /* Установим высоту шапки */
-    display: flex; /* Используем flexbox для центрирования содержимого */
-    align-items: center; /* Выравнивание дочерних элементов по центру по вертикали */
-    justify-content: space-between; /* Равномерное распределение элементов внутри шапки */
+    padding: 0 20px;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar-toggler {
@@ -35,7 +27,8 @@ header {
 
 .navbar .navbar-brand {
     flex-grow: 0;
-    order: 1; /* Порядок для мобильной версии */
+    display: flex;
+    align-items: center;
 }
 
 .navbar-nav {
@@ -45,18 +38,18 @@ header {
 .navbar .btn {
     background-color: #FF342B;
     border: none;
-    order: 3; /* Порядок для мобильной версии */
+    order:3;
 }
 
 @media (min-width: 992px) {
     .navbar {
-        padding: 0 150px; /* Возвращаем отступы для больших экранов */
-        flex-wrap: nowrap; /* Убираем переносы */
-        justify-content: space-between; /* Равномерное распределение элементов */
+        padding: 0 150px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 
     .navbar-toggler {
-        display: none; /* Скрыть кнопку меню на больших экранах */
+        display: none;
     }
 
     .navbar-nav {
@@ -65,71 +58,67 @@ header {
     }
 
     .navbar .navbar-brand {
-        order: 0; /* Логотип возвращается на первую позицию */
+        order: 0;
     }
 
     .navbar .btn {
-        order: 4; /* Кнопка входа перемещается в конец */
+        order: 4;
+        margin-left: auto;
     }
 }
 
-/* Дополнительная проверка для элементов внутри main-content */
-.main-content, .features-container, .slider-container {
-    box-sizing: border-box; /* Включает padding и border в общую ширину */
-    max-width: 100%; /* Ограничивает максимальную ширину */
-    overflow: hidden; /* Скрывает всё, что выходит за пределы */
-}
+
 
 /* Основной контент */
 .main-content {
     text-align: center;
     margin: 90px auto;
-    padding: 0 15px; /* Добавляет внутренние отступы для отступов с боков */
-    max-width: 1440px; /* Максимальная ширина для ПК версии */
-    width: 100%; /* Адаптивная ширина */
-    word-wrap: break-word; /* Перенос слов, выходящих за пределы ширины */
-    display: flex; /* Использует flexbox для центрирования содержимого */
-    flex-direction: column; /* Элементы выстраиваются вертикально */
-    align-items: center; /* Выравнивание элементов по центру */
+    padding: 0 15px;
+    max-width: 1440px;
+    width: 100%;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-content h1 {
     text-align: center;
     max-width: 700px;
-    width: 100%; /* Обеспечивает адаптивность */
+    width: 100%;
     font-size: 56px;
     color: #0A121E;
-    margin-bottom: 20px; /* Добавлено для создания пространства между заголовком и параграфом */
-    margin: auto; /* Центрирование заголовка */
+    margin-bottom: 20px;
+    margin: auto;
 }
 
 .main-content p {
     text-align: center;
     max-width: 700px;
-    width: 100%; /* Обеспечивает адаптивность */
+    width: 100%;
     font-size: 18px;
-    color: #3C3C3C;
-    line-height: 1.6; /* Улучшает читаемость параграфа */
-    margin: auto; /* Центрирование параграфа */
+    color: #0A121E;
+    line-height: 1.6;
+    margin: auto;
 }
 
 
-/* Блок преимуществ */
 .feature {
-    width: 48%; /* Каждое преимущество занимает почти половину ширины контейнера */
-    margin-bottom: 20px; /* Отступ снизу */
-    padding: 20px;
+    width: 38%; /* Ширина каждого блока для формата 2x2 */
+    padding: 15px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Выравнивание содержимого по центру */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 элемента в ряд */
-    gap: 20px; /* Расстояние между блоками */
-    width: 60%; /* Примерное значение, может быть скорректировано */
+    gap: 10px; /* Расстояние между блоками */
+    width: 10%;
 }
 
 .feature img {
@@ -141,25 +130,24 @@ header {
 }
 
 
-/* Блок преимуществ */
 .features-container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1440px;
-    margin: auto;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 50px;
+    padding: 50px;
 }
 
+
 .features {
-    display: flex; /* Используем flexbox для блока преимуществ */
-    flex-direction: row; /* Элементы в строку */
-    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
-    width: 65%; /* Примерно 65% ширины родительского элемента */
-    justify-content: space-between; /* Расстояние между блоками преимуществ */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 35%;
 }
 
 .features h3{
-    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -170,43 +158,39 @@ header {
 }
 
 
-
-
 .space-image {
-    width: 30%; /* Процентная ширина для больших экранов */
+    width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .space-image img {
-    max-width: 100%; /* Адаптирует ширину изображения под блок */
-    max-height: 420px; /* Фиксированная максимальная высота */
+    width: 100%;
+    max-height: 100%;
     border-radius: 40px;
-    object-fit: cover; /* Обеспечивает корректное заполнение блока изображением */
+    object-fit: cover;
 }
 
-/* Адаптивные стили для мобильных устройств */
 @media (max-width: 768px) {
-    .space-image {
-        width: 100%; /* Занимает всю ширину на мобильных устройствах */
-        order: 3; /* Меняет порядок следования, если нужно поместить после других блоков */
-        margin-top: 20px; /* Отступ сверху для визуального разделения */
-    }
-
-    .space-image img {
-        max-height: 300px; /* Меньшая максимальная высота для мобильных устройств */
+    .features-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .features {
-        width: 100%; /* Адаптация ширины контейнера преимуществ под мобильные устройства */
+        width: 100%;
     }
 
     .feature {
-        width: 100%; /* Полная ширина для каждого блока преимуществ на мобильных устройствах */
+        width: 100%;
+    }
+
+    .space-image {
+        width: 90%;
+        margin-top: 20px;
     }
 }
-
 .photos-container {
     background-color: #3C3C3C;
 }
@@ -238,6 +222,7 @@ header {
 }
 
 .slider-nav {
+    width: 75%;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -278,15 +263,15 @@ header {
 .modal {
     display: none; /* Скрыть модальное окно по умолчанию */
     position: fixed; /* Остается на месте при прокрутке */
-    z-index: 9999; /* Сидит поверх всего */
+    z-index: 9999;
     padding-top: 100px; /* Расположение от верхней части */
     left: 0;
     top: 0;
-    width: 100%; /* Полная ширина */
-    height: 100%; /* Полная высота */
-    overflow: auto; /* Включить прокрутку, если нужно */
-    background-color: rgb(0,0,0); /* Цвет фона */
-    background-color: rgba(0,0,0,0.9); /* Черный с небольшой прозрачностью */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
 }
 
 /* Стиль закрывающего элемента (крестик) */
