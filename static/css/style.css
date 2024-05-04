@@ -201,7 +201,7 @@ body {
     padding: 20px;
     margin: 50px auto;
     text-align: center;
-    max-width: 1117px;
+    max-width: 80%;
 }
 
 .slider-container h1{
@@ -222,7 +222,7 @@ body {
 }
 
 .slider-nav {
-    width: 75%;
+    width: 65%;
     display: flex;
     justify-content: center;
     gap: 20px;
