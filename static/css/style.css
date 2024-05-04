@@ -1,0 +1,342 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Убирает горизонтальный скролл */
+    font-family: 'Montserrat', sans-serif;
+}
+/* Общие стили */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Стилизация шапки */
+header {
+    width: 100%;
+    background-color: #0A121E;
+    color: white;
+}
+/* Стилизация шапки */
+.navbar {
+    background-color: #0A121E;
+    color: white;
+    padding: 0 150px; /* Добавим отступы по бокам для больших экранов */
+    height: 90px; /* Установим высоту шапки */
+    display: flex; /* Используем flexbox для центрирования содержимого */
+    align-items: center; /* Выравнивание дочерних элементов по центру по вертикали */
+    justify-content: space-between; /* Равномерное распределение элементов внутри шапки */
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar .navbar-brand {
+    flex-grow: 0;
+    order: 1; /* Порядок для мобильной версии */
+}
+
+.navbar-nav {
+    flex-grow: 1;
+}
+
+.navbar .btn {
+    background-color: #FF342B;
+    border: none;
+    order: 3; /* Порядок для мобильной версии */
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        padding: 0 150px; /* Возвращаем отступы для больших экранов */
+        flex-wrap: nowrap; /* Убираем переносы */
+        justify-content: space-between; /* Равномерное распределение элементов */
+    }
+
+    .navbar-toggler {
+        display: none; /* Скрыть кнопку меню на больших экранах */
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .navbar .navbar-brand {
+        order: 0; /* Логотип возвращается на первую позицию */
+    }
+
+    .navbar .btn {
+        order: 4; /* Кнопка входа перемещается в конец */
+    }
+}
+
+/* Дополнительная проверка для элементов внутри main-content */
+.main-content, .features-container, .slider-container {
+    box-sizing: border-box; /* Включает padding и border в общую ширину */
+    max-width: 100%; /* Ограничивает максимальную ширину */
+    overflow: hidden; /* Скрывает всё, что выходит за пределы */
+}
+
+/* Основной контент */
+.main-content {
+    text-align: center;
+    margin: 90px auto;
+    padding: 0 15px; /* Добавляет внутренние отступы для отступов с боков */
+    max-width: 1440px; /* Максимальная ширина для ПК версии */
+    width: 100%; /* Адаптивная ширина */
+    word-wrap: break-word; /* Перенос слов, выходящих за пределы ширины */
+    display: flex; /* Использует flexbox для центрирования содержимого */
+    flex-direction: column; /* Элементы выстраиваются вертикально */
+    align-items: center; /* Выравнивание элементов по центру */
+}
+
+.main-content h1 {
+    text-align: center;
+    max-width: 700px;
+    width: 100%; /* Обеспечивает адаптивность */
+    font-size: 56px;
+    color: #0A121E;
+    margin-bottom: 20px; /* Добавлено для создания пространства между заголовком и параграфом */
+    margin: auto; /* Центрирование заголовка */
+}
+
+.main-content p {
+    text-align: center;
+    max-width: 700px;
+    width: 100%; /* Обеспечивает адаптивность */
+    font-size: 18px;
+    color: #3C3C3C;
+    line-height: 1.6; /* Улучшает читаемость параграфа */
+    margin: auto; /* Центрирование параграфа */
+}
+
+
+/* Блок преимуществ */
+.feature {
+    width: 48%; /* Каждое преимущество занимает почти половину ширины контейнера */
+    margin-bottom: 20px; /* Отступ снизу */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Выравнивание содержимого по центру */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 элемента в ряд */
+    gap: 20px; /* Расстояние между блоками */
+    width: 60%; /* Примерное значение, может быть скорректировано */
+}
+
+.feature img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* Блок преимуществ */
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    margin: auto;
+}
+
+.features {
+    display: flex; /* Используем flexbox для блока преимуществ */
+    flex-direction: row; /* Элементы в строку */
+    flex-wrap: wrap; /* Разрешаем перенос на новую строку */
+    width: 65%; /* Примерно 65% ширины родительского элемента */
+    justify-content: space-between; /* Расстояние между блоками преимуществ */
+}
+
+.features h3{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #0A121E;
+}
+
+
+
+
+.space-image {
+    width: 30%; /* Процентная ширина для больших экранов */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-image img {
+    max-width: 100%; /* Адаптирует ширину изображения под блок */
+    max-height: 420px; /* Фиксированная максимальная высота */
+    border-radius: 40px;
+    object-fit: cover; /* Обеспечивает корректное заполнение блока изображением */
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+    .space-image {
+        width: 100%; /* Занимает всю ширину на мобильных устройствах */
+        order: 3; /* Меняет порядок следования, если нужно поместить после других блоков */
+        margin-top: 20px; /* Отступ сверху для визуального разделения */
+    }
+
+    .space-image img {
+        max-height: 300px; /* Меньшая максимальная высота для мобильных устройств */
+    }
+
+    .features {
+        width: 100%; /* Адаптация ширины контейнера преимуществ под мобильные устройства */
+    }
+
+    .feature {
+        width: 100%; /* Полная ширина для каждого блока преимуществ на мобильных устройствах */
+    }
+}
+
+.photos-container {
+    background-color: #3C3C3C;
+}
+
+/* Слайдер */
+.slider-container {
+    background-color: #3C3C3C;
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+    max-width: 1117px;
+}
+
+.slider-container h1{
+    color:white;
+    padding:30px;
+
+}
+.slider-for img, .slider-nav img {
+    border-radius: 40px;
+    object-fit: cover;
+}
+
+.slider-for img {
+    width: 750px;
+    height: 420px;
+    margin: auto;
+    filter: drop-shadow(0px 20px 50px rgba(0, 0, 0, 0.5));
+}
+
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px auto;
+}
+
+.slider-nav img {
+    width: 165px;
+    height: 165px;
+    border-radius: 40px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    header .menu, header .login-button {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .main-content, .features, .slider-container {
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .feature {
+        width: 100%;
+    }
+}
+
+/* Стиль модального окна */
+.modal {
+    display: none; /* Скрыть модальное окно по умолчанию */
+    position: fixed; /* Остается на месте при прокрутке */
+    z-index: 9999; /* Сидит поверх всего */
+    padding-top: 100px; /* Расположение от верхней части */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включить прокрутку, если нужно */
+    background-color: rgb(0,0,0); /* Цвет фона */
+    background-color: rgba(0,0,0,0.9); /* Черный с небольшой прозрачностью */
+}
+
+/* Стиль закрывающего элемента (крестик) */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Стили для изображения внутри модального окна */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Добавляем анимацию */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .main-content, .features-container, .slider-container {
+        max-width: 360px; /* Максимальная ширина для мобильных устройств */
+    }
+
+    .features {
+        width: 100%; /* Адаптация ширины блока преимуществ под мобильные устройства */
+    }
+
+    .feature {
+        width: 100%; /* Полная ширина для каждого блока преимуществ на мобильных устройствах */
+    }
+}
