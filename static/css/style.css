@@ -9,6 +9,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.header {
+    background-color: #0A121E;
+    width: 100%;
+}
 /* Стилизация шапки */
 .navbar {
     background-color: #0A121E;
@@ -72,7 +76,7 @@ body {
 /* Основной контент */
 .main-content {
     text-align: center;
-    margin: 90px auto;
+    margin: 95px auto;
     padding: 0 15px;
     max-width: 1440px;
     width: 100%;
@@ -96,7 +100,7 @@ body {
     text-align: center;
     max-width: 700px;
     width: 100%;
-    font-size: 18px;
+    font-size: 15px;
     color: #0A121E;
     line-height: 1.6;
     margin: auto;
@@ -104,15 +108,16 @@ body {
 
 
 .feature {
-    width: 38%; /* Ширина каждого блока для формата 2x2 */
-    padding: 15px;
+    width: 48%; /* Ширина каждого блока для формата 2x2 */
+    padding: 25px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 26px;
 }
+
 
 .features-grid {
     display: grid;
@@ -132,7 +137,7 @@ body {
 
 .features-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
     margin-top: 50px;
@@ -141,10 +146,11 @@ body {
 
 
 .features {
+    margin-top: 80px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 35%;
+    width: 40%;
 }
 
 .features h3{
@@ -159,7 +165,8 @@ body {
 
 
 .space-image {
-    width: 30%;
+    padding: 50px;
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,7 +194,7 @@ body {
     }
 
     .space-image {
-        width: 90%;
+        width: 100%;
         margin-top: 20px;
     }
 }
@@ -201,14 +208,21 @@ body {
     padding: 20px;
     margin: 50px auto;
     text-align: center;
-    max-width: 80%;
+    max-width: 70%;
 }
 
 .slider-container h1{
     color:white;
     padding:30px;
-
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin: auto;
 }
+
+
 .slider-for img, .slider-nav img {
     border-radius: 40px;
     object-fit: cover;
