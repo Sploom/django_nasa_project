@@ -137,3 +137,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'admin_preview': {'size': (100, 100), 'crop': True},
+    },
+}

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import SliderImage
 from adminsortable2.admin import SortableAdminMixin
+from easy_thumbnails.files import get_thumbnailer
 
 @admin.register(SliderImage)
 class SliderImageAdmin(SortableAdminMixin, admin.ModelAdmin):
@@ -10,11 +11,7 @@ class SliderImageAdmin(SortableAdminMixin, admin.ModelAdmin):
     def image_preview(self, obj):
         from django.utils.html import format_html
         if obj.image:
-            return format_html('<img src="{}" style="width: 150px; height: auto;"/>', obj.image.url)
-        return "No Image"
-    image_preview.short_description = "Предварительный просмотр изображения"
-
-
-
-
-
+            thumbnail_url = get_thumbnailer(obj.image)['admin_preview'].url
+            return format_html('<img src="{}" style="width: 100px; height: auto;"/>', thumbnail_url)
+        return "Нет изображения"
+    image_preview.short_description = "Превью"

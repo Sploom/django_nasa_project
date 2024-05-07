@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="{% static 'slick/slick.min.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
 </head>
@@ -35,97 +37,104 @@
             </div>
         </nav>
     </header>
-<div class="main-content">
-    <h1>Космическое агентство</h1>
-    <p>Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
 
-    <div class="features-container">
-        <div class="features">
-            <div class="feature">
-                <img src="{% static 'images/space-shuttle.png' %}" alt="Space Shuttles">
-                <h3>Спейс шаттлы - Пилотируемые корабли</h3>
+    <div class="main-content container">
+        <h1 class="text-center mt-5">Космическое агентство</h1>
+        <p class="text-center">Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
+
+        <div class="features-container mt-4">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <div class="feature text-center">
+                        <img src="{% static 'images/space-shuttle.png' %}" alt="Space Shuttles" class="img-fluid">
+                        <h3>Спейс шаттлы - Пилотируемые корабли</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature text-center">
+                        <img src="{% static 'images/telescope.png' %}" alt="Telescopes" class="img-fluid">
+                        <h3>Лучшее телескопическое оборудование</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature text-center">
+                        <img src="{% static 'images/moon-mars.png' %}" alt="Moon and Mars" class="img-fluid">
+                        <h3>Целимся на Луну и Марс</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature text-center">
+                        <img src="{% static 'images/gold-medal.png' %}" alt="Gold Medal" class="img-fluid">
+                        <h3>Золотая медаль по научным исследованиям</h3>
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <img src="{% static 'images/telescope.png' %}" alt="Telescopes">
-                <h3>Лучшее телескопическое оборудование</h3>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="space-image text-center">
+                        <img src="{% static 'images/space.png' %}" alt="space" class="img-fluid" style="max-width: 100%; height: auto;">
+                    </div>
+                </div>
             </div>
-            <div class="feature">
-                <img src="{% static 'images/moon-mars.png' %}" alt="Moon and Mars">
-                <h3>Целимся на Луну и Марс</h3>
-            </div>
-            <div class="feature">
-                <img src="{% static 'images/gold-medal.png' %}" alt="Gold Medal">
-                <h3>Золотая медаль по научным исследованиям</h3>
-            </div>
-        </div>
-        <div class="space-image">
-            <img src="{% static 'images/space.png' %}" alt="space">
         </div>
     </div>
-</div>
+
+
 
     <div class="photos-container">
         <div class="slider-container">
             <h1>Фотографии</h1>
             <div class="slider-for">
-              {% for image in slider_images %}
-              <div>
-                <img src="{{ image.image.url }}" alt="{{ image.title }}" class="open-modal-img">
-              </div>
-              {% endfor %}
+                {% load thumbnail %}
+                {% for image in slider_images %}
+                <div>
+                    {% thumbnail image.image "750x420" crop="center" as im %}
+                    <a href="{{ image.image.url }}" data-fancybox="gallery">
+                        <img src="{{ im.url }}" alt="{{ image.title }}">
+                    </a>
+                </div>
+                {% endfor %}
             </div>
             <div class="slider-nav">
-              {% for image in slider_images %}
-              <div>
-                <img src="{{ image.image.url }}" alt="{{ image.title }}" style="width: 165px; height: 165px;">
-              </div>
-              {% endfor %}
+                {% for image in slider_images %}
+                <div>
+                    {% thumbnail image.image "165x165" crop="center" as im %}
+                    <img src="{{ im.url }}" alt="{{ image.title }}">
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-        <!-- Модальное окно для полноэкранного просмотра изображений -->
-        <div id="myModal" class="modal">
-          <span class="close">&times;</span>
-          <img class="modal-content" id="img01">
-          <div id="caption"></div>
-        </div>
-    </div>
+
 
     <script type="text/javascript">
-    $(document).ready(function(){
-      $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.slider-nav'
-      });
-      $('.slider-nav').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        asNavFor: '.slider-for',
-        dots: true,
-        centerMode: true,
-        focusOnSelect: true,
-        variableWidth:true
-      });
+         $('.slider-for').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+          slidesToShow: 5,
+          slidesToScroll: 1,
+          asNavFor: '.slider-for',
+          dots: true,
+          centerMode: true,
+          focusOnSelect: true
+        });
+        $(document).ready(function() {
+            $('[data-fancybox="gallery"]').fancybox({
+                buttons: [
+                    "close"
+                ],
+                loop: true,
+                protect: true
+            });
+        });
 
-      // Код для работы модального окна
-      var modal = document.getElementById("myModal");
-      var modalImg = document.getElementById("img01");
-      var captionText = document.getElementById("caption");
-      $('.open-modal-img').click(function(){
-          modal.style.display = "block";
-          modalImg.src = this.src;
-          captionText.innerHTML = this.alt;
-      });
-
-      var span = document.getElementsByClassName("close")[0];
-      span.onclick = function() {
-        modal.style.display = "none";
-      }
-    });
     </script>
+
 
 </body>
 </html>
